@@ -4,7 +4,7 @@ provider:
   name: dronedeploy
 
 custom:
-  appId: abodazipgumvteodzohl
+  appId: # FILL IN APP ID
 
 plugins:
   - "serverless-dronedeploy"

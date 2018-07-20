@@ -3,11 +3,12 @@
     --accent-info-color: #91B9CE;
 }
 
-.info-blue {
-    padding: 1rem;
-    background-color: var(--accent-info-background);
-    text-align: justify;
-    color: var(--accent-info-color);
+button[disabled]:hover {
+  background-color: transparent;
+}
+
+.info {
+    color: #1B74ED;
 }
 
 .expand-section {
@@ -20,4 +21,15 @@
 
 #save-button {
     margin-top: 14px;
+}
+
+.message {
+    word-wrap: break-word;
+}
+
+#data-message {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
