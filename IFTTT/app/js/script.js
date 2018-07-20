@@ -1,3 +1,4 @@
+//Initialize the DroneDeploy API
 const dronedeploy = new DroneDeploy({version: 1});
 
 // Name of the function to call. Name should be the same set in serverless.yml

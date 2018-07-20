@@ -1,4 +1,8 @@
 'use strict';
+/**
+ * DroneDeploy Wrapper
+ * In general, there should be very little to touch here
+ */
 require('dotenv').config()
 
 global.APP_SLUG = process.env.APP_SLUG || undefined;

@@ -4,7 +4,7 @@ provider:
   name: dronedeploy
 
 custom:
-  appId: # FILL IN APP ID
+  appId: # APP ID goes here
 
 plugins:
   - "serverless-dronedeploy"
@@ -13,13 +13,13 @@ package:
   individually: true
   exclude:
     - node_modules/**
-  include:
-    - serverless.yml
 
 functions:
   webhook:
     name: "ifttt-webhook"
-    handler: functions/webhook/
+    handlerPath: functions/webhook
+    handler: webhook
+    app: # APP ID goes here
     memory: 128
     resources:
       tables:

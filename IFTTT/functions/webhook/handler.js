@@ -1,3 +1,7 @@
+/**
+ * This is the primary file for custom code and functionality.
+ */
+
 const request = require('request');
 const tableUtils = require('./datastore/table');
 
@@ -65,7 +69,7 @@ exports.routeHandler = function (req, res, ctx) {
   const path = req.path;
   switch(path) {
     // Route requests for DroneDeploy Trigger events
-    case '/__ddfunctions':
+    case '/__ddtriggerfunction':
       triggerHandler(req, res, ctx);
       break;
     // Route requests for storing and retrieving IFTTT URL
