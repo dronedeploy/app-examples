@@ -1,0 +1,34 @@
+service: IFTTT
+
+provider:
+  name: dronedeploy
+
+custom:
+  appId: abodazipgumvteodzohl
+
+plugins:
+  - "serverless-dronedeploy"
+
+package:
+  individually: true
+  exclude:
+    - node_modules/**
+  include:
+    - serverless.yml
+
+functions:
+  webhook:
+    name: "ifttt-webhook"
+    handler: functions/webhook/
+    memory: 128
+    resources:
+      tables:
+        webhook-table:
+          description: "stores endpoint for IFTTT webhook"
+          columns:
+            - name: endpoint
+              type: Text
+              encrypted: false
+              length: 255
+              description: "webhook endpoint for IFTTT"
+

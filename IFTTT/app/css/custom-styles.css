@@ -1,0 +1,23 @@
+:root {
+    --accent-info-background: #e7f6fe;
+    --accent-info-color: #91B9CE;
+}
+
+.info-blue {
+    padding: 1rem;
+    background-color: var(--accent-info-background);
+    text-align: justify;
+    color: var(--accent-info-color);
+}
+
+.expand-section {
+    padding-top: 10px;
+}
+
+#url {
+    margin-bottom: 8px;
+}
+
+#save-button {
+    margin-top: 14px;
+}

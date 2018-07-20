@@ -1,0 +1,11 @@
+{
+  "name": "ifttt",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dronedeploy.js",
+  "author": "dronedeploy",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-dronedeploy": "git+ssh://git@github.com/dronedeploy/dronedeploy-cli.git"
+  }
+}

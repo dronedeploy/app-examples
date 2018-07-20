@@ -1,0 +1,17 @@
+{
+  "name": "ifttt-webhook",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dronedeploy.js",
+  "author": "dronedeploy",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "5.0.1",
+    "dronedeploy-functions-api": "1.1.1",
+    "request": "2.87.0"
+  },
+  "devDependencies": {
+    "jasmine": "3.1.0",
+    "serverless-dronedeploy": "git+ssh://git@github.com/dronedeploy/dronedeploy-cli.git"
+  }
+}
