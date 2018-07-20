@@ -29,15 +29,17 @@
             <div class="indeterminate" style="width: 16rem;"></div>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="url" type="url" class="validate url-input">
-            <label for="url" data-error="invalid url" data-success="valid url">URL</label>
+        <div id="data-page" class="page" style="display: none;">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="url" type="url" class="validate url-input">
+              <label for="url" data-error="invalid url" data-success="valid url">URL</label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col s12">
-              <button id="save-button" class="primary-btn-nofill dev" onclick="getStoredUrl()">Save</button>
+          <div class="row">
+            <div class="col s12">
+                <button id="save-button" class="primary-btn-nofill dev" onclick="onSave()">Save</button>
+            </div>
           </div>
         </div>
       </div>
@@ -45,7 +47,6 @@
 
     <!-- DroneDeploy JS -->
     <script src="js/script.js"></script>
-    <script src="js/ui.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </body>

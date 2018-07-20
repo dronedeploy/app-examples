@@ -12,18 +12,27 @@ const storeHandler = (req, res, ctx) => {
   switch (req.method) {
     case 'GET':
       return tableUtils.getTableData(ctx, ctx.token.username)
-        .then(result => {
-          if (result === null || result === undefined) {
-            return res.status(204).send({message: 'content missing'});
+        .then((data) => {
+          console.log(data);
+          if (data === null || data === undefined) {
+            return res.status(204).send('content missing');
           } else {
-            res.status(200).send({endpoint: 'endpoint'});
+            res.status(200).send(data.endpoint);
           }
         });
       break;
     case 'POST':
+      const { endpoint } = JSON.parse(req.body);
+      return tableUtils.setTableData(ctx, ctx.token.username, endpoint)
+        .then((result) => {
+          if (result === null || result === undefined || !result.ok) {
+            return res.status(500).send('Server Error');
+          }
+          res.status(200).send();
+        });
       break;
     default:
-      res.status(500).send({error: 'invalid request'});
+      res.status(500).send('invalid request');
   }
 }
 

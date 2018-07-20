@@ -24,7 +24,6 @@ const getTableId = (ctx) => {
           return Promise.reject(result.errors[0]);
         }
       }
-      console.log(result.data.node.table.id);
       return result.data.node.table.id;
     })
     .catch((err) => {
@@ -37,10 +36,10 @@ const couldNotFindData = (errResponse) => {
 };
 
 const getTableData = (ctx, id) => {
-  return getTableId(ctx).then(tableId => {
+  return getTableId(ctx).then((tableId) => {
     const table = ctx.datastore.table(tableId);
-    table.getRowByExternalId(id)
-    .then(result => {
+    return table.getRowByExternalId(id)
+    .then((result) => {
       if (!result.ok) {
         console.log('getTableData bad results');
         if (couldNotFindData(result)) {
@@ -49,33 +48,31 @@ const getTableData = (ctx, id) => {
         }
         return Promise.reject(result.errors[0]);
       }
-      return result;
+      return result.data;
     });
   });
 }
 
 
 const setTableData = (ctx, id, endpoint) => {
-  return getTableId(ctx).then(tableId => {
+  return getTableId(ctx).then((tableId) => {
     const table = ctx.datastore.table(tableId);
-    table.getRowByExternalId(id)
-    .then(result => {
-      console.log('hello');
-      console.log(result);
-      if (!result.ok) {
-        console.log('results not okay');
-        if (couldNotFindData(result)) {
-          console.log('could not find results');
-          return null;
-        }
-        return Promise.reject(result.errors[0]);
+    return table.upsertRow(id, {
+      endpoint: endpoint
+    }).then((rowData) => {
+      if (!rowData.ok) {
+        console.log('error adding row');
+        // Problem storing the access token which will
+        // impact potential future api calls - send error
+        return {ok: false, error: rowData.errors[0]};
       }
-      console.log('successfully returning result');
-      return result;
+      console.log('success adding row');
+      return {ok: true, data: rowData};
     });
   });
 }
 
 module.exports = {
-  getTableData: getTableData
+  getTableData: getTableData,
+  setTableData: setTableData
 }
