@@ -2,7 +2,7 @@
 
 # DroneDeploy App IFTTT example
 
-![IFTTT logo](readme_assets/ifttt_wordmark-blue.png)
+<img src="readme_assets/ifttt_wordmark-blue.png" alt="IFTTT logo" title="DroneDeploy App Platform" align="left" height="120"/>
 
 This example will show you how to deploy an IFTTT app on DroneDeploy and send DroneDeploy Trigger Events to IFTTT via a webhook.
 
