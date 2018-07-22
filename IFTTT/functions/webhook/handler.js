@@ -12,7 +12,73 @@ const TABLE_NAME = 'webhook-table';
  * Handles DroneDeploy Trigger events
  */
 const triggerHandler = (req, res, ctx) => {
-  // TODO
+  console.log('trigger');
+  const event = req.body;
+  tableUtils.getTableData(ctx, ctx.token.username)
+    .then((data) => {
+      if (data === null || data === undefined) {
+        console.log('IFTTT url not found');
+        return res.status(500).send('server error');
+      }
+      let opts = {
+        uri: data.endpoint,
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        json: {
+          value1: event.data.event.object_type,
+          value2: event.data.event.type,
+          value3: event.data.node.id
+        }
+      }
+      request(opts, (error, response, body) => {
+        if (error) {
+          console.error('error sending to IFTTT', error);
+          return res.status(500).send('server error');
+        }
+        console.error('event successfully sent to IFTTT');
+        return res.status(200).send();
+      });
+    });
+
+  // if (event.data.event.object_type === "Export") {
+  //   tableUtils.getExportData(ctx, event.data.node.id)
+  //     .then((exportQuery) => {
+  //       console.log(exportQuery);
+  //       if (!exportQuery.ok) {
+  //         console.error('error retrieving trigger object');
+  //         res.status(500).send('server error');
+  //       }
+  //       console.log(ctx.token.username);
+  //       tableUtils.getTableData(ctx, ctx.token.username)
+  //         .then((data) => {
+  //           if (data === null || data === undefined) {
+  //             console.log('IFTTT url not found');
+  //             return res.status(500).send('server error');
+  //           }
+  //           let opts = {
+  //             uri: data.endpoint,
+  //             method: 'POST',
+  //             body: {
+  //               value1: exportQuery.data.node.user.username,
+  //               value2: exportQuery.data.node.status,
+  //               value3: exportQuery.data.node
+  //             }
+  //           }
+  //           request(opts, (error, response, body) => {
+  //             if (error) {
+  //               console.error('error sending to IFTTT', error);
+  //               res.status(500).send('server error');
+  //             }
+  //             console.error('event successfully sent to IFTTT');
+  //             res.status(200).send();
+  //           });
+  //         });
+  //     })
+  // } else {
+  //   res.status(400).send('bad request, cannot handle this trigger event');
+  // }
 }
 
 /**
@@ -36,12 +102,10 @@ const storeHandler = (req, res, ctx) => {
     case 'GET':
       return tableUtils.getTableData(ctx, ctx.token.username)
         .then((data) => {
-          console.log(data);
           if (data === null || data === undefined) {
             return res.status(204).send('content missing');
-          } else {
-            res.status(200).send(data.endpoint);
           }
+          return res.status(200).send(data.endpoint);
         });
       break;
     case 'POST':
@@ -51,11 +115,11 @@ const storeHandler = (req, res, ctx) => {
           if (result === null || result === undefined || !result.ok) {
             return res.status(500).send('server error');
           }
-          res.status(200).send();
+          return res.status(200).send();
         });
       break;
     default:
-      res.status(400).send('bad request');
+      return res.status(400).send('bad request');
   }
 }
 

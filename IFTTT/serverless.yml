@@ -4,7 +4,7 @@ provider:
   name: dronedeploy
 
 custom:
-  appId: # APP ID goes here
+  appId: # APP ID GOES HERE
 
 plugins:
   - "serverless-dronedeploy"
@@ -19,8 +19,12 @@ functions:
     name: "ifttt-webhook"
     handlerPath: functions/webhook
     handler: webhook
-    app: # APP ID goes here
+    app: # APP ID GOES HERE
     memory: 128
+    package:
+      artifact: ./.serverless/webhook.zip
+      include:
+        - 'functions/webhook/.env'
     resources:
       tables:
         webhook-table:

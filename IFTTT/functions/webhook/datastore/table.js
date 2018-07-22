@@ -13,6 +13,28 @@ const FIND_TABLE_QUERY = (tableName) => {
   }`;
 };
 
+const FIND_EXPORT = (exportId) => {
+  return `{
+    node(id:"${exportId}"){
+      ... on Export{
+        user{
+          username
+        }
+        parameters {
+          projection
+          merge
+          contourInterval
+          layer
+          fileFormat
+          resolution
+        }
+        status
+        downloadPath
+      }
+    }
+  }`;
+}
+
 const getTableId = (ctx) => {
   return ctx.graphql.query(FIND_TABLE_QUERY(TABLE_NAME))
     .then((result) => {
@@ -53,7 +75,6 @@ const getTableData = (ctx, id) => {
   });
 }
 
-
 const setTableData = (ctx, id, endpoint) => {
   return getTableId(ctx).then((tableId) => {
     const table = ctx.datastore.table(tableId);
@@ -64,7 +85,7 @@ const setTableData = (ctx, id, endpoint) => {
         console.log('error adding row');
         // Problem storing the access token which will
         // impact potential future api calls - send error
-        return {ok: false, error: rowData.errors[0]};
+        return {ok: false, errors: rowData.errors};
       }
       console.log('success adding row');
       return {ok: true, data: rowData};
@@ -72,7 +93,21 @@ const setTableData = (ctx, id, endpoint) => {
   });
 }
 
+const getExportData = (ctx, id) => {
+  return ctx.graphql.query(FIND_EXPORT(id))
+    .then((result) => {
+      if (result.errors ? true : false) {
+        return {ok: false, errors: result.errors}
+      }
+      return {ok: true, data: result.data}
+    })
+    .catch((err) => {
+      return Promise.reject(err);
+    });
+}
+
 module.exports = {
   getTableData: getTableData,
-  setTableData: setTableData
+  setTableData: setTableData,
+  getExportData: getExportData
 }

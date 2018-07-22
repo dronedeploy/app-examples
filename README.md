@@ -10,19 +10,28 @@
 1. Become a DroneDeploy developer
 1. Clone this repository
 
-    git clone https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git
+    $ git clone git@github.com:dronedeploy/app-examples.git
+
+1. Install the CLI
+
+    $ cd app-examples
+    $ npm install -g serverless
+    $ npm install
 
 1. Obtain a DroneDeploy developer API key
 
     Contact developer@dronedeploy.com and ask for a developer API key
 
+1. Set your API key for the DroneDeploy CLI
+
+    $ serverless config credentials --provider=dronedeploy --key=<YOUR API KEY>
+
+
 ### How to 
 
 ## Example Apps
 
-### DroneDeploy Triggers
-
-#### IFTTT
+### IFTTT
 
 [See the example app](IFTTT)
 

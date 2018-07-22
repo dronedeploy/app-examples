@@ -41,6 +41,7 @@ async function callStoreFunction(options) {
   
   // Get a token to ensure auth when calling your function
   const token = await api.Authorization.getScopedToken();
+  console.log(token);
   options.headers = {
     'Authorization': `Bearer ${token}`
   }

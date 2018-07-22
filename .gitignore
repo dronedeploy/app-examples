@@ -38,3 +38,6 @@ node_modules
 
 # Build
 */dist
+
+# Packages
+*.zip
