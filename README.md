@@ -10,13 +10,13 @@
 1. Become a DroneDeploy developer
 1. Clone this repository
 
-    $ git clone git@github.com:dronedeploy/app-examples.git
+        $ git clone git@github.com:dronedeploy/app-examples.git
 
 1. Install the CLI
 
-    $ cd app-examples
-    $ npm install -g serverless
-    $ npm install
+        $ cd app-examples
+        $ npm install -g serverless
+        $ npm install
 
 1. Obtain a DroneDeploy developer API key
 
@@ -24,10 +24,23 @@
 
 1. Set your API key for the DroneDeploy CLI
 
-    $ serverless config credentials --provider=dronedeploy --key=<YOUR API KEY>
+        $ serverless config credentials --provider=dronedeploy --key=<YOUR API KEY>
 
 
-### How to 
+### How to run a sample
+
+1. Change directory to one of the sample folders, e.g. `IFTTT`:
+
+        $ cd IFTTT/
+
+1. Install the sample's dependencies
+
+        $ npm install
+
+1. Deploy the sample:
+
+        $ serverless deploy
+
 
 ## Example Apps
 
