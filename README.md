@@ -2,11 +2,15 @@
 
 # DroneDeploy App Examples
 
+Example applications for DroneDeploy's App Platform.
+
+See [developer.dronedeploy.com](https://developer.dronedeploy.com) to get up and running on DroneDeploy's App Platform.
+
 ## Setup
 
 ### Prerequisites
 
-1. Create an account on DroneDeploy
+1. [Create](https://www.dronedeploy.com/signup.html) a DroneDeploy account
 1. Become a DroneDeploy developer
 1. Clone this repository
 
@@ -48,11 +52,11 @@
 
 [See the example app](IFTTT)
 
-[IFTTT](http://ifttt.com/) is a free platform that allows you to create custom rules for calling applications based on events. This sample DroneDeploy app allows you to send DroneDeploy Trigger Events to an [IFTTT webhook](https://ifttt.com/maker_webhooks).
+[IFTTT](http://ifttt.com/) is a free platform that allows you to create custom rules for calling applications based on events. With this example, you will build an application that will send DroneDeploy Trigger Events to an [IFTTT webhook](https://ifttt.com/maker_webhooks).
 
 ## Contributing
 
-Contributions are welcome!
+Contributions are welcome! Please make a pull request on this repository.
 
 ## License
 MIT
