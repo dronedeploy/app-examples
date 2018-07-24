@@ -1,0 +1,9 @@
+{
+  "authRequired": true,
+  "mockToken": false,
+  "config": {
+    "cors": {
+      "headers": []
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- SET NAME OF APP HERE -->
+    <title>IFTTT</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <!--DroneDeploy CSS -->
+    <link rel="stylesheet" href="css/dd-styles.css">
+    <link rel="stylesheet" href="css/custom-styles.css">
+  </head>
+  <body>
+    <div class="container expand-container">
+      <div class="row expand-row">
+        <div class="col-3">
+          <!-- SET NAME OF APP AND LOGO HERE -->
+          <span class="vert-center"><img class="logo" src="images/ifttt_logo.png" alt=""><h1>IFTTT</h1></span>
+        </div>
+        <div class="col-1 right">
+          <i>
+            <img src="https://s3.amazonaws.com/drone-deploy-plugins/templates/login-example-imgs/arrow-down.svg" alt="collapse" class="expand-arrow">
+          </i>
+        </div>
+      </div>
+
+      <div class="expand-section" style="display: none;">
+        <div id="error-page" class="page" style="display: none;">
+            <div class="row">
+              <div class="input-field col s12">
+                <p id="error-message" class="error message"></p>
+                <button class="primary-btn-nofill" onclick="onExpand()">Refresh</button>
+              </div>
+            </div>
+        </div>
+        <div id="loading-page" class="page left" style="display: none;">
+          <div class="progress">
+            <div class="indeterminate" style="width: 16rem;"></div>
+          </div>
+        </div>
+        <div id="data-page" class="page" style="display: none;">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="url" type="url" class="validate url-input">
+              <label for="url" data-error="invalid url" data-success="valid url">URL</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+                <button id="save-button" class="primary-btn-nofill dev disabled" onclick="onSave()">Save</button>
+                <p id="data-message" class="info message" style="display: none;"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- DroneDeploy JS -->
+    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  </body>
+</html>

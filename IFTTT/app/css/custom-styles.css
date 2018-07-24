@@ -1,0 +1,35 @@
+:root {
+    --accent-info-background: #e7f6fe;
+    --accent-info-color: #91B9CE;
+}
+
+button[disabled]:hover {
+  background-color: transparent;
+}
+
+.info {
+    color: #63B0D2;
+}
+
+.expand-section {
+    padding-top: 10px;
+}
+
+#url {
+    margin-bottom: 8px;
+}
+
+#save-button {
+    margin-top: 14px;
+}
+
+.message {
+    word-wrap: break-word;
+}
+
+#data-message {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
