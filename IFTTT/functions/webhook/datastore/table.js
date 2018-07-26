@@ -20,6 +20,7 @@ const FIND_EXPORT = (exportId) => {
         user{
           username
         }
+        id
         parameters {
           projection
           merge

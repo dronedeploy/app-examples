@@ -3,8 +3,7 @@ service: IFTTT
 provider:
   name: dronedeploy
 
-custom:
-  appId: # APP ID GOES HERE
+app: # <APP ID GOES HERE>
 
 plugins:
   - "serverless-dronedeploy"
@@ -19,7 +18,6 @@ functions:
     name: "ifttt-webhook"
     handlerPath: functions/webhook
     handler: webhook
-    app: # APP ID GOES HERE
     memory: 128
     package:
       artifact: ./.serverless/webhook.zip
