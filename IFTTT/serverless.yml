@@ -6,7 +6,7 @@ provider:
 app: # APP ID GOES HERE
 
 plugins:
-  - "serverless-dronedeploy"
+  - "@dronedeploy/dronedeploy-cli"
 
 functions:
   webhook:
