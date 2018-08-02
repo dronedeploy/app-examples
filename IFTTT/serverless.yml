@@ -3,28 +3,17 @@ service: IFTTT
 provider:
   name: dronedeploy
 
-custom:
-  appId: # APP ID GOES HERE
+app: # APP ID GOES HERE
 
 plugins:
-  - "serverless-dronedeploy"
-
-package:
-  individually: true
-  exclude:
-    - node_modules/**
+  - "@dronedeploy/dronedeploy-cli"
 
 functions:
   webhook:
     name: "ifttt-webhook"
     handlerPath: functions/webhook
     handler: webhook
-    app: # APP ID GOES HERE
     memory: 128
-    package:
-      artifact: ./.serverless/webhook.zip
-      include:
-        - 'functions/webhook/.env'
     resources:
       tables:
         webhook-table:

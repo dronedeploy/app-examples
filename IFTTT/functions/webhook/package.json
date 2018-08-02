@@ -12,6 +12,6 @@
   },
   "devDependencies": {
     "jasmine": "3.1.0",
-    "serverless-dronedeploy": "git+ssh://git@github.com/dronedeploy/dronedeploy-cli.git"
+    "@dronedeploy/dronedeploy-cli": "1.0.0"
   }
 }
