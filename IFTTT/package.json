@@ -6,6 +6,6 @@
   "author": "dronedeploy",
   "license": "MIT",
   "devDependencies": {
-    "serverless-dronedeploy": "git+ssh://git@github.com/dronedeploy/dronedeploy-cli.git"
+    "@dronedeploy/dronedeploy-cli": "1.0.0"
   }
 }
