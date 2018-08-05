@@ -79,7 +79,7 @@ const triggerHandler = (req, res, ctx) => {
         console.log(exportQuery);
         if (!exportQuery.ok) {
           console.error('error retrieving trigger object');
-          res.status(500).send('server error');
+          return res.status(500).send('server error');
         }
         console.log(ctx.token.username);
         tableUtils.getTableData(ctx, ctx.token.username)
@@ -175,6 +175,6 @@ exports.routeHandler = function (req, res, ctx) {
       storeHandler(req, res, ctx);
       break;
     default:
-      res.status(400).send('bad request');
+      return res.status(400).send('bad request');
   }
 };
