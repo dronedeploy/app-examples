@@ -9,6 +9,48 @@ const tableUtils = require('./datastore/table');
 const TABLE_NAME = 'webhook-table';
 
  /**
+ * Defines the GraphQL query for getting information about a specific Map export
+ */
+const FIND_EXPORT = (exportId) => {
+  return `{
+    node(id:"${exportId}"){
+      ... on Export{
+        user{
+          username
+        }
+        id
+        parameters {
+          projection
+          merge
+          contourInterval
+          layer
+          fileFormat
+          resolution
+        }
+        status
+        downloadPath
+      }
+    }
+  }`;
+}
+
+ /**
+ * Returns Map export data
+ */
+const getExportData = (ctx, id) => {
+  return ctx.graphql.query(FIND_EXPORT(id))
+    .then((result) => {
+      if (result.errors ? true : false) {
+        return {ok: false, errors: result.errors}
+      }
+      return {ok: true, data: result.data}
+    })
+    .catch((err) => {
+      return Promise.reject(err);
+    });
+}
+
+ /**
  * Handles DroneDeploy Trigger events
  *
  * Sends the following information to IFTTT:
@@ -32,7 +74,7 @@ const triggerHandler = (req, res, ctx) => {
   console.log('trigger');
   const event = req.body;
   if (event.data.event.object_type === "Export") {
-    tableUtils.getExportData(ctx, event.data.node.id)
+    getExportData(ctx, event.data.node.id)
       .then((exportQuery) => {
         console.log(exportQuery);
         if (!exportQuery.ok) {
