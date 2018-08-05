@@ -61,15 +61,15 @@ const triggerHandler = (req, res, ctx) => {
             request(opts, (error, response, body) => {
               if (error) {
                 console.error('error sending to IFTTT', error);
-                res.status(500).send('server error');
+                return res.status(500).send('server error');
               }
               console.error('event successfully sent to IFTTT');
-              res.status(200).send();
+              return res.status(200).send();
             });
           });
       })
   } else {
-    res.status(400).send('bad request, cannot handle this trigger event');
+    return res.status(400).send('bad request, cannot handle this trigger event');
   }
 }
 
