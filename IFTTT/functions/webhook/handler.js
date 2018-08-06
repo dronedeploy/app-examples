@@ -105,7 +105,7 @@ const triggerHandler = (req, res, ctx) => {
                 console.error('error sending to IFTTT', error);
                 return res.status(500).send('server error');
               }
-              console.error('event successfully sent to IFTTT');
+              console.log('event successfully sent to IFTTT');
               return res.status(200).send();
             });
           });
