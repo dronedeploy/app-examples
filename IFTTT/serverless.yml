@@ -9,7 +9,7 @@ plugins:
   - "@dronedeploy/dronedeploy-cli"
 
 functions:
-  webhook:
+  ifttt-webhook:
     name: "ifttt-webhook"
     handlerPath: functions/webhook
     handler: webhook
