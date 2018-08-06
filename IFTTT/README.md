@@ -20,7 +20,7 @@ Be sure to complete the [pre-requisites](../README.md) and to read the DroneDepl
 
 1. Grab the app's ID
 
-1. Copy the app ID into the `appId` field in your serverless.yml file
+1. Copy the app ID into the `app` field in your serverless.yml file
 
 1. Deploy your app
 
