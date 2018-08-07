@@ -14,7 +14,7 @@ functions:
     handlerPath: functions/webhook
     handler: webhook
     memory: 128
-    functionTriggers:
+    function-triggers:
       - event-object-type: Export
         event-type: complete
     resources:

@@ -2,7 +2,7 @@ const TABLE_NAME = 'webhook-table';
 
 const FIND_TABLE_QUERY = (tableName) => {
   return `{
-    node(id: "Application:${global.APP_SLUG}") {
+    node(id: "Application:${global.APP_ID}") {
       ... on Application {
         table(name: "${tableName}") {
           id
