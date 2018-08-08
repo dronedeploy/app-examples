@@ -133,9 +133,9 @@ const triggerHandler = (req, res, ctx) => {
  * @returns {Promise} Sends response back to caller
  */
 const storeHandler = (req, res, ctx) => {
+  const hashedUsername = md5(ctx.token.username);
   switch (req.method) {
     case 'GET':
-      const hashedUsername = md5(ctx.token.username);
       return tableUtils.getTableData(ctx, hashedUsername)
         .then((data) => {
           if (data === null || data === undefined) {
@@ -146,7 +146,6 @@ const storeHandler = (req, res, ctx) => {
       break;
     case 'POST':
       const { endpoint } = JSON.parse(req.body);
-      const hashedUsername = md5(ctx.token.username);
       return tableUtils.setTableData(ctx, hashedUsername, endpoint)
         .then((result) => {
           if (result === null || result === undefined || !result.ok) {
