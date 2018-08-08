@@ -6,8 +6,9 @@
   "author": "dronedeploy",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "5.0.1",
     "@dronedeploy/function-wrapper": "1.1.2",
+    "dotenv": "5.0.1",
+    "md5": "^2.2.1",
     "request": "2.87.0"
   },
   "devDependencies": {

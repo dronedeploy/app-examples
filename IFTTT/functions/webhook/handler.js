@@ -4,6 +4,7 @@
 
 const request = require('request');
 const tableUtils = require('./datastore/table');
+const md5 = require('md5');
 
 // Name of the table. This should be the same as the table name in serverless.yml
 const TABLE_NAME = 'webhook-table';
@@ -81,8 +82,8 @@ const triggerHandler = (req, res, ctx) => {
           console.error('error retrieving trigger object');
           return res.status(500).send('server error');
         }
-        console.log(ctx.token.username);
-        tableUtils.getTableData(ctx, ctx.token.username)
+        const hashedUsername = md5(ctx.token.username);
+        tableUtils.getTableData(ctx, hashedUsername)
           .then((data) => {
             if (data === null || data === undefined) {
               console.log('IFTTT url not found');
@@ -132,9 +133,10 @@ const triggerHandler = (req, res, ctx) => {
  * @returns {Promise} Sends response back to caller
  */
 const storeHandler = (req, res, ctx) => {
+  const hashedUsername = md5(ctx.token.username);
   switch (req.method) {
     case 'GET':
-      return tableUtils.getTableData(ctx, ctx.token.username)
+      return tableUtils.getTableData(ctx, hashedUsername)
         .then((data) => {
           if (data === null || data === undefined) {
             return res.status(204).send('content missing');
@@ -144,7 +146,7 @@ const storeHandler = (req, res, ctx) => {
       break;
     case 'POST':
       const { endpoint } = JSON.parse(req.body);
-      return tableUtils.setTableData(ctx, ctx.token.username, endpoint)
+      return tableUtils.setTableData(ctx, hashedUsername, endpoint)
         .then((result) => {
           if (result === null || result === undefined || !result.ok) {
             return res.status(500).send('server error');
