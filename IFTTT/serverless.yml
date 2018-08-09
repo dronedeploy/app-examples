@@ -12,7 +12,7 @@ functions:
   ifttt-webhook:
     name: "ifttt-webhook"
     handlerPath: functions/webhook
-    handler: webhook
+    handler: dronedeploy
     memory: 128
     events:
       - trigger:
