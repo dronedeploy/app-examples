@@ -12,7 +12,7 @@ const handler = require('./handler');
 
 let config = require('./config.json');
 
-exports.webhook = function (req, res) {
+exports.dronedeploy = function (req, res) {
   if (!global.APP_ID) {
     const msg = 'App slug not available, did you deploy using DroneDeploy-Cli?';
     console.error(msg);
