@@ -6,6 +6,6 @@
   "author": "dronedeploy",
   "license": "MIT",
   "devDependencies": {
-    "@dronedeploy/dronedeploy-cli": "1.1.1"
+    "@dronedeploy/dronedeploy-cli": "1.1.2"
   }
 }
