@@ -1,0 +1,27 @@
+service: IFTTT
+
+provider:
+  name: dronedeploy
+
+app: # APP ID GOES HERE
+
+plugins:
+  - "@dronedeploy/dronedeploy-cli"
+
+functions:
+  api:
+    name: "api"
+    handlerPath: functions/api
+    handler: dronedeploy
+    memory: 128
+    resources:
+      tables:
+        api-table:
+          description: "stores API key for OpenWeather"
+          columns:
+            - name: key
+              type: Text
+              encrypted: true
+              length: 255
+              description: "API key for OpenWeather"
+
