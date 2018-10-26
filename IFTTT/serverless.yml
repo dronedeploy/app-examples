@@ -1,16 +1,15 @@
-service: IFTTT
+service: IFTT
 
 provider:
   name: dronedeploy
 
-app: yiomzdnlbkskzmbojekn
+app: chhxvitfdztlooxgisee
 
 plugins:
   - "@dronedeploy/dronedeploy-cli"
 
 functions:
-  ifttt-webhook:
-    name: "ifttt-webhook"
+  cartogram-webhook:
     handlerPath: functions/webhook
     handler: dronedeploy
     memory: 128
@@ -21,11 +20,10 @@ functions:
     resources:
       tables:
         webhook-table:
-          description: "stores endpoint for IFTTT webhook"
+          description: "stores endpoint for storing cartogram"
           columns:
             - name: endpoint
               type: Text
               encrypted: false
               length: 255
-              description: "webhook endpoint for IFTTT"
-
+              description: "storage endpoint for cartogram"
