@@ -6,9 +6,6 @@ const request = require('request');
 const tableUtils = require('./datastore/table');
 const md5 = require('md5');
 
-// Name of the table. This should be the same as the table name in serverless.yml
-const TABLE_NAME = 'webhook-table';
-
  /**
  * Defines the GraphQL query for getting information about a specific Map export
  */

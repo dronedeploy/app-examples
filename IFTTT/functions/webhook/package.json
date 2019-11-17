@@ -6,13 +6,15 @@
   "author": "dronedeploy",
   "license": "MIT",
   "dependencies": {
-    "@dronedeploy/function-wrapper": "1.1.7",
+    "@dronedeploy/function-wrapper": "1.2.3",
     "dotenv": "5.0.1",
     "md5": "^2.2.1",
-    "request": "2.87.0"
+    "request": "2.87.0",
+    "lodash": ">=4.17.13",
+    "js-yaml": ">=3.13.1"
   },
   "devDependencies": {
     "jasmine": "3.1.0",
-    "@dronedeploy/dronedeploy-cli": "1.0.0"
+    "@dronedeploy/dronedeploy-cli": "1.4.1"
   }
 }
