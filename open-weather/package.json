@@ -1,0 +1,11 @@
+{
+  "name": "ifttt",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dronedeploy.js",
+  "author": "dronedeploy",
+  "license": "MIT",
+  "devDependencies": {
+    "@dronedeploy/dronedeploy-cli": "1.1.2"
+  }
+}
