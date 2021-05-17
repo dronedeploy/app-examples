@@ -18,9 +18,7 @@ See [developer.dronedeploy.com](https://developer.dronedeploy.com) to get up and
 
 1. Install the CLI
 
-        $ cd app-examples
         $ npm install -g serverless
-        $ npm install
 
 1. Obtain a DroneDeploy developer API key
 
