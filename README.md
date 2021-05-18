@@ -18,9 +18,7 @@ See [developer.dronedeploy.com](https://developer.dronedeploy.com) to get up and
 
 1. Install the CLI
 
-        $ cd app-examples
         $ npm install -g serverless
-        $ npm install
 
 1. Obtain a DroneDeploy developer API key
 
@@ -28,12 +26,14 @@ See [developer.dronedeploy.com](https://developer.dronedeploy.com) to get up and
 
 1. Set your API key for the DroneDeploy CLI
 
+        $ cd IFTTT/
+        $ npm install
         $ serverless config credentials --provider=dronedeploy --key=<YOUR API KEY>
 
 
 ### How to run a sample
 
-1. Change directory to one of the sample folders, e.g. `IFTTT`:
+1. Be in a directory of one of the sample folders, e.g. `IFTTT`:
 
         $ cd IFTTT/
 
