@@ -22,7 +22,7 @@ See [developer.dronedeploy.com](https://developer.dronedeploy.com) to get up and
 
 1. Obtain a DroneDeploy developer API key
 
-    Contact developer@dronedeploy.com and ask for a developer API key
+    Contact appmarket@dronedeploy.com and ask for a developer API key
 
 1. Set your API key for the DroneDeploy CLI
 
