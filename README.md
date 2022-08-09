@@ -28,7 +28,7 @@ See [developer.dronedeploy.com](https://developer.dronedeploy.com) to get up and
 
         $ cd IFTTT/
         $ npm install
-        $ serverless config credentials --provider=dronedeploy --key=<YOUR API KEY>
+        $ serverless config dronedeploy-credentials --provider=dronedeploy --key=<YOUR API KEY>
 
 
 ### How to run a sample
